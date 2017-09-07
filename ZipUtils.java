@@ -11,21 +11,21 @@ import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang.StringUtils;
 
 /**
- * ×Ö·û´®Ñ¹Ëõ¡¢½âÑ¹Ëõ
+ * å­—ç¬¦ä¸²å‹ç¼©ã€è§£å‹ç¼©
  * @author EX_WLJR_GAODEPENG
  *
  */
 public class ZipUtils {
 	
 	/**
-	 * Ñ¹Ëõ£ºÔ­×Ö·û´®--->ZipOutPutStreanÑ¹Ëõ-->×ªBASE64×Ö·û´®
-	 * ½âÑ¹£ºÑ¹Ëõºó×Ö·û´®--->BASE64×ªÂë--->ZipInPutStream½âÑ¹Ëõ
+	 * å‹ç¼©ï¼šåŸå­—ç¬¦ä¸²--->ZipOutPutStreanå‹ç¼©-->è½¬BASE64å­—ç¬¦ä¸²
+	 * è§£å‹ï¼šå‹ç¼©åå­—ç¬¦ä¸²--->BASE64è½¬ç --->ZipInPutStreamè§£å‹ç¼©
 	 */
 
 	private static final String DEFAULT_ENTITY_NAME = "0";
 	/**
-	 * »ñÈ¡Ñ¹Ëõºó×Ö·û´®
-	 * @param source Ô­Ê¼×Ö·û´®
+	 * è·å–å‹ç¼©åå­—ç¬¦ä¸²
+	 * @param source åŸå§‹å­—ç¬¦ä¸²
 	 * @param entryName 
 	 * @return
 	 */
@@ -34,8 +34,8 @@ public class ZipUtils {
 		return base64EncodeStr;
 	}
 	/**
-	 * Ö¸¶¨×Ö·û¼¯»ñÈ¡Ñ¹Ëõºó×Ö·û´®
-	 * @param source Ô­Ê¼×Ö·û´®
+	 * æŒ‡å®šå­—ç¬¦é›†è·å–å‹ç¼©åå­—ç¬¦ä¸²
+	 * @param source åŸå§‹å­—ç¬¦ä¸²
 	 * @param entryName 
 	 * @return
 	 */
@@ -45,8 +45,8 @@ public class ZipUtils {
 	}
 	
 	/**
-	 * »ñÈ¡½âÑ¹ºóÊı¾İ
-	 * @param encodeStr Ñ¹Ëõºó×Ö·û´®
+	 * è·å–è§£å‹åæ•°æ®
+	 * @param encodeStr å‹ç¼©åå­—ç¬¦ä¸²
 	 * @return
 	 */
 	public static String getDecompressStr(String encodeStr){
@@ -55,8 +55,8 @@ public class ZipUtils {
 	}
 	
 	/**
-	 * Ö¸¶¨×Ö·û¼¯»ñÈ¡½âÑ¹ºóÊı¾İ
-	 * @param encodeStr Ñ¹Ëõºó×Ö·û´®
+	 * æŒ‡å®šå­—ç¬¦é›†è·å–è§£å‹åæ•°æ®
+	 * @param encodeStr å‹ç¼©åå­—ç¬¦ä¸²
 	 * @return
 	 */
 	public static String getDecompressStr(String encodeStr,String charset){
@@ -65,7 +65,7 @@ public class ZipUtils {
 	}
 	
 	/**
-	 * ×Ö·û´®Ñ¹Ëõ
+	 * å­—ç¬¦ä¸²å‹ç¼©
 	 * @param source
 	 * @param entryName
 	 * @return
@@ -80,11 +80,11 @@ public class ZipUtils {
 		try {
 			out = new ByteArrayOutputStream();
 			zout = new ZipOutputStream(out);
-			ZipEntry entry = new ZipEntry(DEFAULT_ENTITY_NAME);//ZIP file entry,±ØĞë¶¨ÒåZipEntry
+			ZipEntry entry = new ZipEntry(DEFAULT_ENTITY_NAME);//ZIP file entry,å¿…é¡»å®šä¹‰ZipEntry
 			zout.putNextEntry(entry);
 			zout.write(source.getBytes());
 			zout.closeEntry();
-			compressed = out.toByteArray();//¸ù¾İapi×¢ÊÍ£¬´Ë´¦outÎªÊµ¼ÊÊä³öÁ÷
+			compressed = out.toByteArray();//æ ¹æ®apiæ³¨é‡Šï¼Œæ­¤å¤„outä¸ºå®é™…è¾“å‡ºæµ
 		} catch (IOException e) {
 			e.printStackTrace();
 			compressed = null;
@@ -106,7 +106,7 @@ public class ZipUtils {
 	}
 	
 	/**
-	 * Ö¸¶¨×Ö·û¼¯Ñ¹Ëõ
+	 * æŒ‡å®šå­—ç¬¦é›†å‹ç¼©
 	 * @param source
 	 * @param charset
 	 * @return
@@ -121,11 +121,11 @@ public class ZipUtils {
 		try {
 			out = new ByteArrayOutputStream();
 			zout = new ZipOutputStream(out);
-			ZipEntry entry = new ZipEntry(DEFAULT_ENTITY_NAME);//ZIP file entry,±ØĞë¶¨ÒåZipEntry
+			ZipEntry entry = new ZipEntry(DEFAULT_ENTITY_NAME);//ZIP file entry,å¿…é¡»å®šä¹‰ZipEntry
 			zout.putNextEntry(entry);
 			zout.write(source.getBytes(charset));
 			zout.closeEntry();
-			compressed = out.toByteArray();//¸ù¾İapi×¢ÊÍ£¬´Ë´¦outÎªÊµ¼ÊÊä³öÁ÷
+			compressed = out.toByteArray();//æ ¹æ®apiæ³¨é‡Šï¼Œæ­¤å¤„outä¸ºå®é™…è¾“å‡ºæµ
 		} catch (IOException e) {
 			e.printStackTrace();
 			compressed = null;
@@ -147,7 +147,7 @@ public class ZipUtils {
 	}
 	
 	/**
-	 * ½âÑ¹Ëõ
+	 * è§£å‹ç¼©
 	 * @param compressed
 	 * @return
 	 */
@@ -197,7 +197,7 @@ public class ZipUtils {
 	}
 	
 	/**
-	 * Ö¸¶¨×Ö·û¼¯½âÑ¹Ëõ
+	 * æŒ‡å®šå­—ç¬¦é›†è§£å‹ç¼©
 	 * @param compressed
 	 * @param charset
 	 * @return
@@ -249,13 +249,5 @@ public class ZipUtils {
 	
 	
 	
-	public static void main(String[] args) {
-		String source = "1¡¢µ¥Àà¾İĞÍ10	·Å¿î100	µÖÕ®×Ê²úµÖÓâÆÚ±¾½ğ101	µÖÕ®×Ê²úµÖÕı³£±¾½ğ110	±íÍâ½áÇå120	ºËÏú´û¿îÊÖ¹¤½áÇå130	ÕËÎñÒªËØ±ä¸ü140	¹«»ı½ğÇåËã141	¹«»ı½ğ½è¼ÇÒµÎñ142	¹«»ı½ğ´û¼ÇÒµÎñ143	À¥Ã÷¹«»ı½ğ	¶ş¼¶ÕË»§×Ê½ğÉÏ»®150	Î¯´æÏúÎ¯´û160	´û¿î×ªÈÃ170	·Å¿î²¹ÕÊ20	ÊÖ¹¤»¹¿î21	ÌáÇ°»¹¿î22	ÅúÁ¿¿Û¿î23	ÅúÁ¿ÌáÇ°»¹¿î24	ÍøÒøÌáÇ°»¹¿î25	½ğÁìÍ¨´æµ¥»¹¿î30	ÀûÏ¢¸´ÀûÔö¼õ40	µ÷Õû±¾½ğ50	³å·Å¿î51	³å»¹¿î52	³·Ïú·Å¿î53	³·Ïú»¹¿î55	ÍË»õÈ«¶îÊÕÈ¡ÊÖĞø·Ñ56	ÍË»õÈ«¶îÍË»ØÊÖĞø·Ñ57	ÍË»õ²»ÊÕÈ¡Î´ÊÕ²¿·ÖÊÖĞø·Ñ60	±£Ö¤½ğ¿Û¿î70	´û¿îÄÚ×ª75	´û¿î½áÏ¢80	Õı³£×ªÓâÆÚ81	ÓâÆÚ×ªÕı³£90	¹«»ı½ğ³å»¹´û95	ºËÏúºóÊÕ»Ø96	ÀúÊ·ºËÏú´û¿îÊÖ¹¤ÊÕ»Ø97	´ó¶îºËÏú´û¿îÊÕ»Ø2¡¢ÕË»§ÀàĞÍĞÅÏ¢*@paamogID*@paamsubjeco*@paamcuecy*@paamaccouype*@euµÃµ½¹«»ı½ğÕË»§£º*@howsExcepio*12	FC-ICSÍùÀ´ÄÚ²¿ÕË»§*13	ICS-FCÍùÀ´ÄÚ²¿ÕË»§*90	Â½¼Ò×ì¿ªÁ¢¡°¸ö´û»ù½ğ¡±×¨ÓÃ´æ¿îÕË»§*91	¹«»ı½ğÎ¯ÍĞ´æ¿îÕË»§*92	¹«»ı½ğÎ¯ÍĞ´û¿îÀûÏ¢»§*93	¹«»ı½ğÎ¯ÍĞ´û¿î·£Ï¢»§*94	¹«»ı½ğÎ¯ÍĞ´û¿î×Ê½ğÇåËã¡ª±¾½ğÕË»§ÀàĞÍ71	ĞÂ×Ê½ğ¼à¹ÜICS¹ı¶É»§97	¹«»ı½ğ´û¿î419×Ê½ğÇåËã(´úµæ»§)140	¸ö´ûÔÚFCÖĞÔİ¹Ò¿ÆÄ¿150	¸ö´ûÔÚICSÖĞÔİ¹Ò¿ÆÄ¿11	ÁãÊÛ-ICSÍùÀ´ÄÚ²¿ÕË»§12	FC-ICSÍùÀ´ÄÚ²¿ÕË»§10	ÁãÊÛ-FCÍùÀ´ÄÚ²¿ÕË»§13	ICS-FCÍùÀ´ÄÚ²¿ÕË»§20	°´½Ò½ğÊÕÒæÖ§È¡ÕË»§30	×Ê½ğ¼à¹ÜÕË»§40	ÖúÑ§´û¿îÌùÏ¢ÕË»§50	ÒøĞĞ±£È«»§56	ÀíÅâÕÊ»§60	ĞÅÓÃ¿¨ÇåËãÍùÀ´ÕË»§55	Ğ¡Ïû±£·ÑÕÊ»§70	Í¨´æÍ¨¶ÒÕË»§90	¹«»ı½ğ´û¿î£¨ÖĞĞÄ£©×¨ÓÃ´æ¿îÕË»§91	¹«»ı½ğÎ¯ÍĞ´æ¿îÕË»§92	¹«»ı½ğÎ¯ÍĞ´û¿îÀûÏ¢»§93	¹«»ı½ğÎ¯ÍĞ´û¿î·£Ï¢»§94	¹«»ı½ğ´û¿î419×Ê½ğÇåËã(´úÊÕ»§)95	¹«»ı½ğÎ¯ÍĞ´û¿î×Ê½ğÇåËã¡ª±¾½ğ£¨¿Í»§ÕË£©96	¹«»ı½ğÎ¯ÍĞ´û¿î×Ê½ğÇåËã¡ªÀûÏ¢£¨¿Í»§ÕË£©100	¸öÈË´û¿îËğÊ§×¼±¸¡ªµ±ÄêºËÏú110	¶Ô¹«´û¿îËğÊ§×¼±¸¡ªµ±ÄêºËÏú120	¸öÈË´û¿îËğÊ§×¼±¸¡ªµ±ÄêÊÕ»Ø130	¶Ô¹«´û¿îËğÊ§×¼±¸¡ªµ±ÄêÊÕ»Ø80	FCÓ¡»¨Ë°ÕË»§81	ICSÓ¡»¨Ë°ÕË»§½»Ò×±àºÅ991001·Å¿î992001»¹¿î993001ÇåËã994001³å·Å¿î995001³å»¹¿î997001Î¯´æÏúÎ¯´û998001·Å¿î²¹ÕË";
-		String encodeStr = getCompressStr(source);
-		String decodeStr = getDecompressStr(encodeStr);
-		System.out.println("Ñ¹ËõºóBASE64´®£º"+encodeStr);
-		System.out.println("BASE64½âÑ¹Ëõ´®£º"+decodeStr);
-		System.out.println(decodeStr.equals(source));
-		System.out.println("Ñ¹ËõÂÊÎª:"+encodeStr.length()+""+source.length());
-	}
+
 }
