@@ -12,7 +12,7 @@ import org.apache.commons.lang.StringUtils;
 
 /**
  * 字符串压缩、解压缩
- * @author EX_WLJR_GAODEPENG
+ * @author 
  *
  */
 public class ZipUtils {
