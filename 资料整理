@@ -17,3 +17,5 @@ https://github.com/huangz1990/redis
 http://media.readthedocs.org/htmlzip/redis/latest/redis.zip
 7、redis
 https://github.com/solq360/dht/blob/master/src/main/java/org/solq/dht/db/redis/service/RedisDao.java
+8、redis文档
+http://ifeve.com/redis-lock/
