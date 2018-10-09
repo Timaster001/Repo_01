@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Configuration status="info">
+    <Properties>
+        <Property name="pattern">%d{yyyy-MM-dd HH:mm:ss,SSS} %5p %c{1}:%L - %m%n</Property>
+        <Property name="displayName">EurekaServer</Property>
+        <Property name="basePath">/home/idea/module</Property>
+    </Properties>
+
+
+
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout>
+                <pattern>${pattern}</pattern>
+            </PatternLayout>
+        </Console>
+
+        <File name="error" fileName="${basePath}/${displayName}_error.log" append="false">
+            <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY" />
+            <PatternLayout>${pattern}</PatternLayout>
+        </File>
+        <RollingFile name="rollingFile" fileName="${basePath}/${displayName}.log" filePattern="${basePath}/${displayName}_%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <pattern>${pattern}</pattern>
+            </PatternLayout>
+            <SizeBasedTriggeringPolicy size="50 MB" />
+
+        </RollingFile>
+        <Appender type="" name="">
+
+        </Appender>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="org.springframework" level="WARN" />
+        <Logger name="com.idea.module" level="DEBUG" />
+
+        <Root level="DEBUG">
+            <AppenderRef ref="console"/>
+            <AppenderRef ref="error"/>
+            <AppenderRef ref="rollingFile"/>
+
+        </Root>
+    </Loggers>
+</Configuration>
